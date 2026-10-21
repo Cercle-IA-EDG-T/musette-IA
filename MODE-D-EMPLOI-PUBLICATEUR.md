@@ -17,7 +17,7 @@ Règle d’or : **on ne touche jamais au reste d’`index.html`**. Tout se passe
 
 | # | Action | Détail |
 |---|---|---|
-| 1 | Créer le dépôt | Nom `<compte>.github.io` pour une adresse courte, **Public**, avec README |
+| 1 | Créer le dépôt | Nom `musette-ia.github.io` (organisation `musette-ia`), **Public**, avec README |
 | 2 | Déposer le kit | Add file › Upload files : glisser tout le contenu du dossier `musette-ia` (pas le dossier lui-même), puis Commit changes |
 | 3 | Activer le site | Settings › Pages › Deploy from a branch › `main` › `/ (root)` › Save |
 | 4 | Régler `CONFIG` | Ouvrir `index.html`, icône ✏️, chercher `const CONFIG` et remplir les 3 lignes ci-dessous |
@@ -29,12 +29,15 @@ Les trois réglages de `CONFIG` :
 | Ligne | Mettre |
 |---|---|
 | `prototype: true` | `prototype: false` (une fois les vrais fichiers en place) |
-| `mail: "cercle-ia@exemple.fr"` | L’adresse générique du Cercle |
+| `mail: "adresse-du-cercle@proton.me"` | L’adresse Proton Mail du Cercle, qui reçoit les dépôts |
 | `formulaireAvis` et `champOutil` | Le lien du Google Form d’avis et l’identifiant du champ « outil » (voir §6) |
 
 Le site ne s’affiche pas correctement en double-cliquant sur `index.html` sur un ordinateur : il a besoin d’être servi par GitHub pour lire `catalogue.json`. Testez toujours sur l’adresse en ligne.
 
 ## 3. Circuit d’un dépôt
+
+Le contributeur remplit la fiche sur le site (bouton « Déposer ») ; le site prépare un mail dont l’objet commence par `[DÉPÔT]`. En fin de mail, le bloc « FICHE CATALOGUE » est une fiche déjà écrite pour `catalogue.json` : il suffit de la copier, puis de compléter `fichier` et `verifie`.
+
 
 | Étape | Qui | Action | Libellé dans la boîte mail |
 |---|---|---|---|

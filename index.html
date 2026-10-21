@@ -76,7 +76,12 @@ p{margin:0}
 #cover .tricolore{width:110px;height:7px;border-bottom:0}
 .cv-sub{font-size:clamp(18px,4.6vw,24px);color:#c9d2e3;max-width:32ch}
 .cv-go{appearance:none;align-self:flex-start;margin-top:8px;background:#e6ebf4;color:#0f1522;border:0;border-radius:999px;font-weight:700;font-size:20px;padding:12px 30px;cursor:pointer}
-.cv-go:focus-visible{outline:3px solid #9db8ec;outline-offset:3px}
+.cv-go:focus-visible,.cv-alt:focus-visible{outline:3px solid #9db8ec;outline-offset:3px}
+.cv-choix{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;max-width:520px}
+.cv-choix button{margin:0;align-self:stretch;display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border-radius:16px;padding:14px 18px}
+.cv-choix small{font-weight:500;font-size:14px;opacity:.75}
+.cv-alt{appearance:none;background:transparent;color:#e6ebf4;border:2px solid #9db8ec;border-radius:16px;font-weight:700;font-size:20px;cursor:pointer}
+@media (max-width:420px){.cv-choix{grid-template-columns:1fr}}
 #cover.out{animation:cvout .5s ease forwards}
 @keyframes cvout{to{opacity:0;visibility:hidden}}
 
@@ -136,6 +141,14 @@ th{font-weight:600;color:var(--attenue);width:38%}
 .home-hero h1{margin:0;font-size:clamp(38px,9vw,56px);line-height:1.02;font-weight:700}
 .home-hero .tricolore{width:96px;height:6px}
 .home-hero p{font-size:19px;color:var(--attenue);max-width:34ch}
+.choix{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){.choix{grid-template-columns:1fr}}
+.gros{appearance:none;cursor:pointer;text-align:left;border-radius:18px;padding:20px 20px 18px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;border:2px solid var(--gc);background:color-mix(in srgb,var(--gc) 9%,var(--surface));color:var(--encre);min-height:112px}
+.gros .gi{grid-row:1/3;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--gc);color:var(--sur-pastille)}
+.gros .gi svg{width:28px;height:28px}
+.gros b{font-size:26px;line-height:1.05}
+.gros small{font-size:15.5px;color:var(--attenue);line-height:1.3}
+.gros:hover{background:color-mix(in srgb,var(--gc) 16%,var(--surface))}
 .home-now{appearance:none;width:100%;text-align:left;display:flex;align-items:center;gap:14px;background:var(--surface);border:1.5px solid color-mix(in srgb,var(--bleu) 45%,transparent);border-radius:14px;padding:12px 16px;cursor:pointer}
 .home-now .k{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--attenue)}
 .home-now b{display:block;font-size:20px;line-height:1.15}
@@ -208,6 +221,34 @@ details summary::after{content:"+";font-size:24px;color:var(--bleu);font-weight:
 details[open] summary::after{content:"–"}
 details>div{padding:0 0 16px;display:grid;gap:10px}
 
+/* ---------- formulaire de dépôt ---------- */
+.form{display:grid;gap:14px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.fgrid{grid-template-columns:1fr}}
+.field{display:grid;gap:5px;min-width:0}
+.field>span{font-weight:600;font-size:16px}
+.field>span i{font-style:normal;color:var(--rouge)}
+.field small.aide{font-size:14px;color:var(--attenue)}
+.field input,.field textarea,.field select{width:100%;border:1.5px solid var(--attenue);background:var(--surface);border-radius:10px;padding:10px 12px;font-size:16.5px;line-height:1.35}
+.field select{border-radius:10px;padding-right:32px;font-weight:400}
+.field textarea{resize:vertical;min-height:84px}
+.field input:focus,.field textarea:focus,.field select:focus{outline:3px solid var(--bleu);outline-offset:1px}
+.field.bad input,.field.bad textarea,.field.bad select{border-color:var(--rouge)}
+.field .msg{display:none;font-size:14px;color:var(--rouge);font-weight:600}
+.field.bad .msg{display:block}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks label{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--trait);border-radius:999px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:15px;background:var(--surface)}
+.checks input{accent-color:var(--bleu);width:16px;height:16px}
+.certif{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;background:var(--bande);border-radius:12px;padding:12px 14px;cursor:pointer}
+.certif input{width:20px;height:20px;accent-color:var(--bleu);margin-top:2px}
+.certif.bad{outline:2px solid var(--rouge)}
+.compteur{font-family:var(--mono);font-size:12px;color:var(--attenue);justify-self:end}
+.etape-num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:999px;background:var(--bleu);color:var(--sur-pastille);font-weight:700;font-size:15px;margin-right:8px}
+.pret{border:2px solid var(--vert)}
+.pj{display:grid;gap:6px;background:color-mix(in srgb,var(--ambre) 12%,var(--surface));border:1.5px solid color-mix(in srgb,var(--ambre) 50%,transparent);border-radius:12px;padding:12px 14px}
+.pj b{color:var(--ambre)}
+.btn.vert{background:var(--vert);border-color:var(--vert);color:var(--sur-pastille)}
+
 /* ---------- pied & barre de rubriques ---------- */
 footer.pied{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--attenue);border-top:1px solid var(--trait);padding-top:10px;margin-top:26px}
 .prot{letter-spacing:.1em;border:1px solid var(--trait);border-radius:4px;padding:2px 6px}
@@ -237,7 +278,7 @@ body.is-home .wrap{padding-bottom:40px}
     <h1 class="cv-title">Musette <span>IA</span></h1>
     <span class="tricolore" role="img" aria-label="Drapeau français"></span>
     <p class="cv-sub">L’essentiel de l’IA à portée de main : skills, webapps et artefacts vérifiés par le Cercle.</p>
-    <button class="cv-go" id="cvgo">Entrer</button>
+    <div class="cv-choix"><button class="cv-go" data-cover="cat">Consulter<small>Trouver un outil</small></button><button class="cv-alt" data-cover="dep">Déposer<small>Proposer mon outil</small></button></div>
   </div>
 </div>
 
@@ -272,7 +313,7 @@ body.is-home .wrap{padding-bottom:40px}
    ========================================================= */
 const CONFIG = {
   prototype: true,                                  // false sur GitHub : les boutons servent les vrais fichiers
-  mail: "cercle-ia@exemple.fr",                     // adresse générique du Cercle
+  mail: "adresse-du-cercle@proton.me",             // adresse Proton Mail du Cercle (réception des dépôts)
   formulaireAvis: "https://docs.google.com/forms/", // Google Form d’avis (champ « outil » pré-rempli)
   champOutil: "entry.000000",                       // identifiant du champ « outil » dans le Form
   dossierOutils: "outils/"                          // outils/<id>/<fichier> dans le dépôt
@@ -348,7 +389,7 @@ const HELP={
   cat:"<b>Trouver un outil :</b> tapez un mot (« note », « veille »…) ou filtrez par type. Touchez une carte pour ouvrir sa fiche.",
   fav:"<b>Vos favoris</b> restent sur cet appareil, dans ce navigateur. Ils ne sont visibles par personne d’autre.",
   guides:"<b>Avant d’installer :</b> lisez le guide qui correspond au type d’outil. Un skill ne s’installe pas comme une webapp.",
-  dep:"<b>Déposer ne demande aucun compte :</b> un mail suffit. L’équipe du Cercle vérifie, met aux couleurs du Cercle et publie.",
+  dep:"<b>Comment ça marche :</b> remplissez le formulaire, le site prépare un mail complet adressé au Cercle. Il ne vous reste qu’à joindre votre fichier et cliquer sur Envoyer dans votre messagerie. Votre brouillon reste sur cet appareil.",
   cercle:"<b>Qui fait quoi :</b> l’équipe admin du Cercle est la seule à publier. Personne d’extérieur ne peut modifier un outil."
 };
 function vHome(){
@@ -362,6 +403,10 @@ function vHome(){
   ];
   return `<section class="home-hero"><h1>Musette IA</h1><span class="tricolore" role="img" aria-label="Drapeau français"></span>
     <p>Les outils IA de la promotion, vérifiés par le Cercle, à emporter sans compte.</p></section>
+    <div class="choix">
+      <button class="gros" data-r="cat" style="--gc:var(--bleu)"><span class="gi">${svg("cat")}</span><b>Consulter</b><small>${OUTILS.length} outils vérifiés, sans compte</small></button>
+      <button class="gros" data-r="dep" style="--gc:var(--vert)"><span class="gi">${svg("dep")}</span><b>Déposer</b><small>Proposer mon outil au Cercle</small></button>
+    </div>
     ${last?`<button class="home-now" data-tool="${last.id}"><span class="dot"></span><span><span class="k">DERNIER AJOUT · ${esc(dateFR(last.date))}</span><b>${esc(last.titre)}</b></span></button>`:""}
     <nav class="home-grid" aria-label="Menu principal">
       ${tiles.map(([ic,t,d,n,tc,ty])=>`<button class="tile" data-r="cat" ${ty?`data-settype="${ty}"`:""} style="--tc:${tc}"><span class="ic">${svg(ic)}</span><span class="n">${n}</span><span><b>${t}</b><small>${d}</small></span></button>`).join("")}
@@ -448,36 +493,59 @@ function vGuides(){
   return `<h2>Guides</h2><p class="muted">Un guide par type d’outil. Ouvrez celui qui vous concerne.</p>
    <div class="stack">${G.map(([k,t,c],i)=>`<details ${i===0?"open":""}><summary><span class="row" style="gap:10px"><span style="color:${(TYPES[k]||TYPES.projet).tc};display:inline-flex">${svg(k,'width="22" height="22"')}</span>${t}</span></summary><div>${c}</div></details>`).join("")}</div>`;
 }
-const MODELE=()=>`Objet : [DÉPÔT] Type – Titre de l’outil
-
-Titre :
-Type : Skill / Webapp / Artefact / Prompt / Projet
-Résumé (2 lignes max) :
-Domaine : Rédaction / Méthode / Veille / Pédagogie / Autre
-Niveau : Débutant / Confirmé
-Fonctionne avec : Claude / Mistral / IA locale / Navigateur
-Auteur (grade, nom, promotion) :
-Version :
-Exemple d’usage concret :
-Pièces jointes : le fichier + une capture d’écran
-
-☐ Je certifie que l’outil ne contient aucune information
-  sensible ni donnée personnelle.`;
+/* ---------- dépôt : formulaire → mail formaté ---------- */
+const DOMAINES=["Rédaction","Communication","Méthode","Veille","Pédagogie","Autre"];
+const COMPAT=["Claude","Mistral","ChatGPT","IA locale","Navigateur"];
+let DEP={}; try{ DEP=JSON.parse(localStorage.getItem("bo-depot")||"{}"); }catch(e){}
+const saveDep=()=>{ try{ localStorage.setItem("bo-depot",JSON.stringify(DEP)); }catch(e){} };
+let MAILPRET=null;
+const slug=t=>String(t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,48)||"outil";
+function fld(k,label,{req=false,type="text",ph="",aide="",max=0,area=false,opts=null}={}){
+  const v=DEP[k]??"";
+  const ctl=opts?`<select name="${k}" ${req?"required":""}><option value="">Choisir…</option>${opts.map(o=>`<option ${v===o?"selected":""}>${esc(o)}</option>`).join("")}</select>`
+    :area?`<textarea name="${k}" ${req?"required":""} ${max?`maxlength="${max}"`:""} placeholder="${esc(ph)}">${esc(v)}</textarea>`
+    :`<input name="${k}" type="${type}" ${req?"required":""} ${max?`maxlength="${max}"`:""} placeholder="${esc(ph)}" value="${esc(v)}" ${type==="email"?'autocomplete="email" inputmode="email"':""}>`;
+  return `<label class="field" data-f="${k}"><span>${label}${req?" <i>*</i>":""}</span>${ctl}${aide?`<small class="aide">${aide}</small>`:""}${max?`<span class="compteur" data-c="${k}">${String(v).length} / ${max}</span>`:""}<span class="msg">Ce champ est à remplir.</span></label>`;
+}
 function vDep(){
+  const typeOpts=Object.entries(TYPES).map(([k,T])=>T.l);
   const st=[
-    ["Vous envoyez le mail","Contributeur","Le fichier, une capture et la fiche ci-dessous, à l’adresse du Cercle."],
-    ["Accusé de réception","Équipe admin","Vous savez que votre outil est pris en charge."],
-    ["Vérification","Un vérificateur","Sécurité, absence d’information sensible, test sur ordinateur et téléphone."],
-    ["Publication","Un publicateur, différent du vérificateur","Mise aux couleurs du Cercle et mise en ligne."],
+    ["Vous envoyez le mail préparé","Vous","Avec votre fichier et une capture en pièces jointes."],
+    ["Vérification","Équipe admin du Cercle","Sécurité, absence d’information sensible, test sur ordinateur et téléphone."],
+    ["Publication","Un second admin","Mise aux couleurs du Cercle et mise en ligne."],
     ["Vous recevez le lien","Équipe admin","Vous pouvez le diffuser à vos camarades."]
   ];
   return `<h2>Déposer un outil</h2>
-  <p class="lead">Aucun compte à créer : envoyez votre outil par mail, le Cercle s’occupe du reste.</p>
-  <section class="card"><h3>LE CIRCUIT</h3><div class="circuit">${st.map(([t,q,d],i)=>`<div class="st"><span class="num">${i+1}</span><div><b>${t}</b><span class="qui">${q}</span><p class="muted">${d}</p></div></div>`).join("")}</div></section>
-  <section class="card"><h3>LE MAIL À ENVOYER</h3><p class="muted">Copiez ce modèle, remplissez chaque ligne et joignez vos fichiers.</p>
-    <pre class="modele" id="modele">${esc(MODELE())}</pre>
-    <div class="row"><button class="btn primary" data-copy="1">${svg("copy")}Copier le modèle</button><a class="btn" href="mailto:${CONFIG.mail}?subject=${encodeURIComponent("[DÉPÔT] Type – Titre de l’outil")}&body=${encodeURIComponent(MODELE().split("\n").slice(2).join("\n"))}">${svg("mail")}Ouvrir ma messagerie</a></div>
-    <p class="note">Adresse du Cercle : ${esc(CONFIG.mail)}</p></section>
+  <p class="lead">Remplissez la fiche : le site prépare un mail complet pour le Cercle. Aucun compte à créer.</p>
+  <section class="card" id="formdep"><h3><span class="etape-num">1</span>VOTRE FICHE</h3>
+   <div class="form">
+    <div class="fgrid">
+      ${fld("mail","Votre adresse mail",{req:true,type:"email",ph:"prenom.nom@exemple.fr",aide:"Pour que le Cercle puisse vous répondre."})}
+      ${fld("nom","Grade et nom",{req:true,ph:"Cne Dupont"})}
+    </div>
+    <div class="fgrid">
+      ${fld("promo","Promotion",{ph:"140-1"})}
+      ${fld("titre","Titre de l’outil",{req:true,ph:"Compte rendu de visite",max:60})}
+    </div>
+    <div class="fgrid">
+      ${fld("type","Type",{req:true,opts:typeOpts})}
+      ${fld("domaine","Domaine",{req:true,opts:DOMAINES})}
+    </div>
+    ${fld("resume","Résumé : ce que fait l’outil",{req:true,area:true,max:200,ph:"Rédige le compte rendu d’une visite en une page, avec une explication simple de la technologie."})}
+    ${fld("usage","Exemple d’usage concret",{req:true,area:true,max:200,ph:"Après une visite d’entreprise, pour restituer en dix minutes à ceux qui n’y étaient pas."})}
+    ${fld("etapes","Comment s’en servir (une étape par ligne)",{area:true,max:400,ph:"Importer le skill dans Claude.\nColler ses notes.\nDemander « compte rendu »."})}
+    <div class="fgrid">
+      ${fld("niveau","Niveau",{opts:["Débutant","Confirmé"]})}
+      ${fld("version","Version",{ph:"1.0"})}
+    </div>
+    <div class="field" data-f="compat"><span>Fonctionne avec</span><div class="checks">${COMPAT.map(c=>`<label><input type="checkbox" name="compat" value="${c}" ${(DEP.compat||[]).includes(c)?"checked":""}>${c}</label>`).join("")}</div></div>
+    ${fld("lien","Lien vers le fichier, s’il dépasse 20 Mo",{type:"url",ph:"https://…",aide:"Facultatif. Sinon, le fichier sera joint au mail."})}
+    <label class="certif" data-f="certif"><input type="checkbox" name="certif" ${DEP.certif?"checked":""}><span><b>Je certifie</b> que l’outil ne contient aucune information sensible (DR, ordres réels) ni donnée personnelle. <i style="font-style:normal;color:var(--rouge)">*</i></span></label>
+    <div class="row"><button class="btn primary" data-prep="1">${svg("mail")}Préparer mon mail</button><button class="link" data-effacer="1">Effacer le formulaire</button></div>
+   </div>
+  </section>
+  <div id="pret"></div>
+  <section class="card"><h3>ENSUITE</h3><div class="circuit">${st.map(([t,q,d],i)=>`<div class="st"><span class="num">${i+1}</span><div><b>${t}</b><span class="qui">${q}</span><p class="muted">${d}</p></div></div>`).join("")}</div></section>
   <section class="card"><h3>LES RÈGLES</h3>
     <div class="regle"><span>🌐</span><p><b>Tout est public.</b> Ce site est lisible par n’importe qui sur internet.</p></div>
     <div class="regle"><span>🚫</span><p><b>Rien de sensible :</b> pas de DR, pas d’éléments d’ordres réels, pas de données de personnel.</p></div>
@@ -485,6 +553,87 @@ function vDep(){
     <div class="regle"><span>📦</span><p><b>Autonome :</b> une webapp tient dans un seul fichier HTML et n’appelle aucun site extérieur.</p></div>
   </section>`;
 }
+function lireForm(){
+  const f=$("#formdep"); if(!f) return;
+  f.querySelectorAll("input[name],textarea[name],select[name]").forEach(el=>{
+    if(el.name==="compat") return;
+    DEP[el.name]= el.type==="checkbox"?el.checked:el.value;
+  });
+  DEP.compat=[...f.querySelectorAll('input[name="compat"]:checked')].map(x=>x.value);
+}
+function construireMail(){
+  const d=DEP, T=Object.entries(TYPES).find(([k,t])=>t.l===d.type), tk=T?T[0]:"skill";
+  const auj=new Date().toISOString().slice(0,10);
+  const etapes=String(d.etapes||"").split(/\n+/).map(x=>x.trim()).filter(Boolean);
+  const fiche={id:slug(d.titre),titre:d.titre.trim(),type:tk,domaine:d.domaine,niveau:d.niveau||"Débutant",
+    resume:d.resume.trim(),usage:d.usage.trim(),etapes,compat:d.compat?.length?d.compat:["Claude"],
+    auteur:"Cercle IA EdG-T",version:(d.version||"1.0").trim(),date:auj,verifie:"",fichier:"",note:null,avis:0,
+    historique:[[(d.version||"1.0").trim(),"Première version."]]};
+  const sujet=`[DÉPÔT] ${d.type} – ${d.titre.trim()}`;
+  const corps=`Bonjour,
+
+Je propose l’outil suivant pour Musette IA.
+
+=== FICHE DE DÉPÔT ===
+Titre : ${d.titre.trim()}
+Type : ${d.type}
+Domaine : ${d.domaine}
+Niveau : ${d.niveau||"non précisé"}
+Version : ${d.version||"1.0"}
+Fonctionne avec : ${(d.compat||[]).join(", ")||"non précisé"}
+Résumé : ${d.resume.trim()}
+Exemple d’usage : ${d.usage.trim()}
+${etapes.length?"Comment s’en servir :\n"+etapes.map((e,i)=>`  ${i+1}. ${e}`).join("\n")+"\n":""}${d.lien?`Lien vers le fichier : ${d.lien.trim()}\n`:""}
+=== CONTRIBUTEUR ===
+Grade et nom : ${d.nom.trim()}
+Promotion : ${d.promo||"non précisée"}
+Adresse de réponse : ${d.mail.trim()}
+
+[x] Je certifie que l’outil ne contient aucune information sensible ni donnée personnelle.
+
+Pièces jointes : ${d.lien?"une capture d’écran (fichier accessible par le lien ci-dessus)":"le fichier de l’outil + une capture d’écran"}.
+
+=== FICHE CATALOGUE (réservé à l’équipe admin) ===
+${JSON.stringify(fiche)}
+`;
+  return {sujet,corps};
+}
+function valider(){
+  const f=$("#formdep"); let premier=null;
+  const req=["mail","nom","titre","type","domaine","resume","usage"];
+  f.querySelectorAll(".bad").forEach(x=>x.classList.remove("bad"));
+  for(const k of req){
+    const ok=String(DEP[k]||"").trim() && (k!=="mail"||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(DEP.mail.trim()));
+    if(!ok){ const el=f.querySelector(`[data-f="${k}"]`); el.classList.add("bad"); if(k==="mail"&&DEP.mail) el.querySelector(".msg").textContent="Adresse mail invalide."; premier=premier||el; }
+  }
+  if(!DEP.certif){ const el=f.querySelector('[data-f="certif"]'); el.classList.add("bad"); premier=premier||el; }
+  if(premier){ premier.scrollIntoView({behavior:"smooth",block:"center"}); const c=premier.querySelector("input,textarea,select"); if(c) setTimeout(()=>c.focus({preventScroll:true}),300); toast("Il manque quelques informations : elles sont signalées en rouge."); return false; }
+  return true;
+}
+function afficherPret(){
+  const {sujet,corps}=MAILPRET;
+  const href=`mailto:${CONFIG.mail}?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corps.replace(/\n/g,"\r\n"))}`;
+  $("#pret").innerHTML=`<section class="card pret"><h3><span class="etape-num" style="background:var(--vert)">2</span>VOTRE MAIL EST PRÊT</h3>
+    <div class="pj"><b>📎 Avant d’envoyer, joignez :</b><span>${DEP.lien?"une capture d’écran de l’outil":"le fichier de l’outil (.zip, .html, .txt…) et une capture d’écran"}.</span></div>
+    <div class="tbl"><table><tr><th>À</th><td>${esc(CONFIG.mail)}</td></tr><tr><th>Objet</th><td>${esc(sujet)}</td></tr></table></div>
+    <pre class="modele">${esc(corps)}</pre>
+    <div class="row">
+      <a class="btn vert" href="${href}" data-ouvrir="1">${svg("mail")}Ouvrir ma messagerie</a>
+      <button class="btn" data-copiermail="1">${svg("copy")}Copier le mail</button>
+    </div>
+    <p class="note">Rien n’est envoyé tant que vous n’avez pas cliqué sur Envoyer dans votre messagerie. Si votre messagerie ne s’ouvre pas, ou si le texte arrive incomplet, utilisez « Copier le mail » et collez-le dans un nouveau message.</p>
+  </section>`;
+  $("#pret").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.addEventListener("input",e=>{
+  if(!e.target.closest("#formdep")) return;
+  lireForm(); saveDep();
+  const fl=e.target.closest(".field"); if(fl) fl.classList.remove("bad");
+  const cert=e.target.closest(".certif"); if(cert) cert.classList.remove("bad");
+  const c=document.querySelector(`[data-c="${e.target.name}"]`); if(c) c.textContent=`${e.target.value.length} / ${e.target.maxLength}`;
+  if(MAILPRET){ MAILPRET=null; $("#pret").innerHTML=""; }
+});
+document.addEventListener("change",e=>{ if(e.target.closest("#formdep")){ lireForm(); saveDep(); e.target.closest(".field,.certif")?.classList.remove("bad"); if(MAILPRET){ MAILPRET=null; $("#pret").innerHTML=""; } } });
 function vCercle(){
   return `<h2>Le Cercle IA</h2>
   <p class="lead">Le Cercle IA de l’École de Guerre – Terre rassemble les outils IA utiles à la promotion, les vérifie et les met à disposition de tous.</p>
@@ -533,7 +682,7 @@ document.addEventListener("click",ev=>{
   const b=ev.target.closest("button"); if(!b) return; const d=b.dataset;
   if(d.tool) return go("tool",d.tool);
   if(d.settype){ V.type=d.settype; V.groupe=d.settype==="artefact"; V.q=""; V.dom="tous"; return go("cat"); }
-  if(d.r){ if(d.r==="cat"&&!b.closest(".view")){V.type="tous";V.groupe=false;} if(d.r==="cat"&&b.classList.contains("tile")){V.type="tous";V.groupe=false;} return go(d.r); }
+  if(d.r){ if(d.r==="cat"&&!b.closest(".view")){V.type="tous";V.groupe=false;} if(d.r==="cat"&&(b.classList.contains("tile")||b.classList.contains("gros"))){V.type="tous";V.groupe=false;} return go(d.r); }
   if(d.type){ V.type=d.type; V.groupe=false; document.querySelectorAll(".chip[data-type]").forEach(c=>c.setAttribute("aria-pressed",c.dataset.type===V.type)); return renderListe(); }
   if(d.reset){ V.q="";V.type="tous";V.dom="tous";V.groupe=false; return render(); }
   if(d.help){ V.help[d.help]=!V.help[d.help]; return render(); }
@@ -545,7 +694,9 @@ document.addEventListener("click",ev=>{
     if(CONFIG.prototype&&!/^https?:/.test(o.demo)) return toast(`Prototype : sur GitHub, ce bouton ouvrira ${url}`);
     window.open(url,"_blank","noopener"); return; }
   if(d.avis){ const o=OUTILS.find(x=>x.id===d.avis); if(CONFIG.prototype) return toast("Prototype : ce bouton ouvrira le formulaire d’avis, nom de l’outil déjà rempli."); window.open(lienAvis(o),"_blank","noopener"); return; }
-  if(d.copy){ const t=MODELE(); (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast("Modèle copié. Collez-le dans votre mail.")).catch(()=>toast("Copie impossible : sélectionnez le texte à la main.")); return; }
+  if(d.prep){ lireForm(); saveDep(); if(!valider()) return; MAILPRET=construireMail(); afficherPret(); return; }
+  if(d.copiermail&&MAILPRET){ const t=`À : ${CONFIG.mail}\nObjet : ${MAILPRET.sujet}\n\n${MAILPRET.corps}`; (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast("Mail copié. Collez-le dans un nouveau message, puis joignez votre fichier.")).catch(()=>toast("Copie impossible : sélectionnez le texte à la main.")); return; }
+  if(d.effacer){ if(!confirm("Effacer tout le formulaire ?")) return; DEP={}; saveDep(); MAILPRET=null; return render(); }
 });
 $("#brand").addEventListener("click",()=>go("home"));
 
@@ -560,8 +711,9 @@ $("#theme").addEventListener("click",()=>{
 /* page de garde : une fois par jour */
 function showCover(){
   const c=$("#cover"); c.hidden=false;
-  $("#cvgo").onclick=()=>{ c.classList.add("out"); setTimeout(()=>{c.hidden=true;c.classList.remove("out");},520);
-    try{ localStorage.setItem("bo-cover",new Date().toISOString().slice(0,10)); }catch(e){} };
+  c.querySelectorAll("[data-cover]").forEach(b=>b.onclick=()=>{ c.classList.add("out"); setTimeout(()=>{c.hidden=true;c.classList.remove("out");},520);
+    try{ localStorage.setItem("bo-cover",new Date().toISOString().slice(0,10)); }catch(e){}
+    V.type="tous"; V.groupe=false; go(b.dataset.cover); });
 }
 
 /* ---------- démarrage : catalogue.json d’abord, secours intégré sinon ---------- */
