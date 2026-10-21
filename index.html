@@ -712,7 +712,7 @@ $("#theme").addEventListener("click",()=>{
 function showCover(){
   const c=$("#cover"); c.hidden=false;
   c.querySelectorAll("[data-cover]").forEach(b=>b.onclick=()=>{ c.classList.add("out"); setTimeout(()=>{c.hidden=true;c.classList.remove("out");},520);
-    try{ localStorage.setItem("bo-cover",new Date().toISOString().slice(0,10)); }catch(e){}
+    try{ sessionStorage.setItem("bo-cover","1"); }catch(e){}
     V.type="tous"; V.groupe=false; go(b.dataset.cover); });
 }
 
@@ -726,9 +726,12 @@ function showCover(){
   OUTILS=data.outils.filter(o=>TYPES[o.type]);
   const h=location.hash.slice(1);
   if(h&&OUTILS.some(o=>o.id===h)){ V.r="tool"; V.id=h; }
-  else if(["cat","fav","guides","dep","cercle"].includes(h)) V.r=h;
-  let day=""; try{ day=localStorage.getItem("bo-cover")||""; }catch(e){}
-  if(!h && day!==new Date().toISOString().slice(0,10)) showCover();
+  else {
+    /* à chaque ouverture du site : page de garde Consulter / Déposer (sauf lien direct vers une fiche) */
+    let vu=false; try{ vu=sessionStorage.getItem("bo-cover")==="1"; }catch(e){}
+    if(!vu){ V.r="home"; showCover(); }
+    else if(["cat","fav","guides","dep","cercle"].includes(h)) V.r=h;
+  }
   render();
 })();
 </script>
