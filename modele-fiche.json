@@ -1,0 +1,19 @@
+{
+  "id": "identifiant-de-l-outil",
+  "titre": "Titre de l’outil",
+  "type": "skill",
+  "domaine": "Rédaction",
+  "niveau": "Débutant",
+  "resume": "Ce que fait l’outil, en deux lignes maximum.",
+  "usage": "Dans quelle situation concrète il fait gagner du temps.",
+  "etapes": ["Première étape.", "Deuxième étape.", "Troisième étape."],
+  "compat": ["Claude"],
+  "auteur": "Cercle IA EdG-T",
+  "version": "1.0",
+  "date": "2026-10-21",
+  "verifie": "2026-10-21",
+  "fichier": "nom-du-fichier.zip",
+  "note": null,
+  "avis": 0,
+  "historique": [["1.0", "Première version."]]
+}
