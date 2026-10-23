@@ -4,7 +4,7 @@
 
 Musette IA rassemble les outils d’intelligence artificielle de l’École de Guerre – Terre : skills, webapps, artefacts et prompts. Chaque outil est relu, testé et publié par le Cercle IA EdG-T.
 
-👉 **Le site :** https://musette-ia.github.io
+👉 **Le site :** https://cercle-ia-edg-t.github.io/musette-IA/
 
 ## Utiliser un outil
 
